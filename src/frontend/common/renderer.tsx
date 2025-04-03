@@ -1,9 +1,11 @@
 import React from 'react';
+import hmr from 'webpack-hot-middleware/client';
+import type { ClientOptions } from 'webpack-hot-middleware/client';
 import { __DEVELOPMENT__ } from '@generated';
 
 import { createRoot } from 'react-dom/client';
 
-export default function renderer(rootName, App: React.FC) {
+export default function renderer(rootName : string, App: React.FC) {
 
   document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById(rootName);
@@ -17,10 +19,9 @@ export default function renderer(rootName, App: React.FC) {
     if (__DEVELOPMENT__) {
       // The following options allow you to reload the entire page when changes are made. 
       // HMR allows you to reload only the necessary components but this does not work correctly for css/sass/scss which are built together with Pug.
-      const options = {
+      const options : ClientOptions  = {
         reload: true
       };
-      const hmr = await import('webpack-hot-middleware/client');
       hmr.setOptionsAndConnect(options);
 
       hmr.subscribeAll((obj) => {

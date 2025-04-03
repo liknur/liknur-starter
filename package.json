@@ -11,9 +11,10 @@
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.27.0",
     "@types/react-dom": "^19.1.1",
+    "@types/webpack-env": "^1.18.8",
     "@types/webpack-hot-middleware": "^2.25.9",
     "babel-loader": "^10.0.0",
-    "liknur-cli": "^1.0.8",
+    "liknur-cli": "^1.0.12",
     "typescript": "^5.8.2",
     "webpack-hot-middleware": "^2.26.1"
   },
