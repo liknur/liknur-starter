@@ -1,0 +1,21 @@
+{
+  "name": "liknur-starter",
+  "version": "1.0.0",
+  "description": "Boilerplate for modern React applications using Liknur CLI",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.27.0",
+    "babel-loader": "^10.0.0",
+    "liknur-cli": "^1.0.8",
+    "webpack-hot-middleware": "^2.26.1"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
