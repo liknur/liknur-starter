@@ -11,16 +11,15 @@
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "lib": [
-      "ESNext"
+      "ESNext", "DOM"
     ],
     "types": [
-      "node",
-      "jest"
+      "node"
     ],
     "baseUrl": "./",
     "paths": {
-      "@generated": "./dist/generated/index.ts",
-      "@frontend/*": "./src/frontend/*"
+      "@generated": ["./dist/generated/index.ts"],
+      "@frontend/*": ["./src/frontend/*"]
     }
   }
 }
