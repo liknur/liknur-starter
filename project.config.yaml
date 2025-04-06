@@ -1,12 +1,19 @@
 name: liknur-starter
 version: 0.1.0
 aliases:
-  common:
-      "@generated": "./dist/generated/index.ts"
   frontend:
       "@frontend": "./src/frontend"
+  backend:
+      "@config-runtime": "./src/backend/config/runtime"
+      "@logger": "./src/backend/logger"
+      "@backend": "./src/backend"
+      "@config": "./src/backend/config"
+      "@routes": "./src/backend/routes"
+
 services:
   - name: public
     serviceType: frontend
     subdomain: public
-    
+  - name: user
+    serviceType: frontend
+    subdomain: user
