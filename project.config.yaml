@@ -1,5 +1,7 @@
 name: liknur-starter
 version: 0.1.0
+settings:
+  frontendWebpackConfig: config/frontend.js
 aliases:
   frontend:
       "@frontend": "./src/frontend"

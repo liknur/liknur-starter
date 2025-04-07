@@ -21,13 +21,13 @@ if (!runtimeConfig) {
 }
 
 printBuildSettings();
-
 logger.info(chalk.yellow('🚀 Server is starting...'));
 logger.info(
   chalk.greenBright(
     `Server runtime configuration: \n${JSON.stringify(runtimeConfig.runtime.getProperties(), null, 2)}`
   )
 );
+
 
 const httpPort = runtimeConfig.runtime.get('http.port');
 const domain = runtimeConfig.runtime.get('domain');
