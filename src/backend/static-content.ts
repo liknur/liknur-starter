@@ -21,6 +21,7 @@ export default async function setup(app: Koa): Promise<void> {
   if (__DEVELOPMENT__) {
     logger.info('Running in development mode');
     const domain = runtimeConfig.runtime.get('domain');
+    logger.info('Using liknur project configution file:' + __PROJECT_CONFIG_FILE__);
     await frontendHotMiddleware(app, domain, logger, __PROJECT_CONFIG_FILE__, frontendServiceList);
   } else {
     const staticContent: Record<string, ReturnType<typeof serve>> = {};
@@ -31,28 +32,28 @@ export default async function setup(app: Koa): Promise<void> {
     }
 
     app.use(async (ctx: Koa.Context, next: Koa.Next): Promise<void> => {
-      logger.info(`Serving static content for ${ctx.hostname}`);
+      logger.debug(`Serving static content for ${ctx.hostname}`);
       const domain = runtimeConfig.runtime.get('domain');
       const subdomain = getSubdomainName('http://' + ctx.hostname, domain);
       if (subdomain === null) {
-        logger.info(
+        logger.debug(
           `Request from ${ctx.hostname} does not match any component using domain name ${subdomain} ... continuing`
         );
         return await next();
       }
 
       if (subdomain === '' && 'public' in staticContent) {
-        logger.info(
+        logger.debug(
           `Request from ${ctx.hostname} matches public frontend... serving`
         );
         await staticContent['public'](ctx, next);
       } else if (subdomain in staticContent) {
-        logger.info(
+        logger.debug(
           `Request from ${ctx.hostname} matches component ${subdomain}... serving`
         );
         await staticContent[subdomain](ctx, next);
       } else {
-        logger.info(
+        logger.warn(
           `Request from ${ctx.hostname} does not match any component... continuing`
         );
         await next();

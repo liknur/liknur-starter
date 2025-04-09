@@ -41,7 +41,7 @@ export default function renderer(rootName : string, App: React.FC) {
           <App />
         </React.StrictMode>);
     } else {
-      console.log('Running in production mode');
+      console.log('Running in production/test mode');
       const root = createRoot(container);
       root.render(<App />);
     }

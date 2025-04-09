@@ -8,7 +8,7 @@ import jest from "eslint-plugin-jest";
 export default [
   js.configs.recommended,
   {
-    ignores: ["node_modules", "dist", "build", "coverage"],
+    ignores: ["node_modules", "dist", "build", "coverage", "config/*.js"],
   },
   {
     languageOptions: {
@@ -50,6 +50,7 @@ export default [
   },
   {
     files: ["**/__tests__/**/*.spec.ts", "**/__tests__/**/*.spec.tsx"],
+    ignores: ["**/node_modules/**", "config/**"],
     languageOptions: {
       globals: {
         describe: true,
